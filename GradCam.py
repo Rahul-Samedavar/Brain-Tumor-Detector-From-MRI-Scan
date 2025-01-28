@@ -65,13 +65,14 @@ def grad_cam_visualize(model, image_path, layer, explainer=GradCAM()):
     img, img_arr = imgArr(image_path)
     class_ind = np.argmax(model.predict(img_arr, verbose=0))
     explaination = explainer.explain((img_arr, None), model, class_ind, layer)
-    plt.figure()
+    fig = plt.figure()
     plt.subplot(1, 2, 1)
-    plt.xlabel(f"{classes[class_ind]} Image")
+    plt.xlabel(f"{classes[class_ind]} Image", fontdict={'size': 12})
     plt.imshow(img)
     plt.subplot(1, 2, 2)
-    plt.xlabel("Grad Cam Visualization")
+    plt.xlabel("Grad Cam Visualization", fontdict={'size': 12})
     plt.imshow(explaination)
+    return fig
 
 def grad_cam_plus_plus_visualize(model, image_path, layer, alpha=0.3):
     classes = ['glioma', 'meningioma', 'notumor', 'pituitary']
@@ -81,10 +82,11 @@ def grad_cam_plus_plus_visualize(model, image_path, layer, alpha=0.3):
 
     heatmap = grad_cam_plus(model, img_arr, layer, class_ind)
     masked = mask(image_path, heatmap, alpha)
-    plt.figure()
+    fig = plt.figure()
     plt.subplot(1, 2, 1)
-    plt.xlabel(f"{classes[class_ind]} Image")
+    plt.xlabel(f"{classes[class_ind]} Image", fontdict={'size': 12})
     plt.imshow(img)
     plt.subplot(1, 2, 2)
-    plt.xlabel("Grad Cam Visualization")
+    plt.xlabel("Grad Cam++ Visualization", fontdict={'size': 12})
     plt.imshow(masked)
+    return fig

@@ -3,7 +3,7 @@ from PIL import Image
 
 classes = ['glioma', 'meningioma', 'notumor', 'pituitary']
 
-def get_prob(img_path, model):
+def get_probs(img_path, model):
     img = Image.open(img_path)
 
     resized_img = img.resize((299, 299))
@@ -17,7 +17,7 @@ def get_prob(img_path, model):
     return list(predictions[0])
 
 def predict(img_path, model):
-    probs = get_prob(img_path, model)
+    probs = get_probs(img_path, model)
     return np.argmax(probs)
 
 def classify(img_path, model):
