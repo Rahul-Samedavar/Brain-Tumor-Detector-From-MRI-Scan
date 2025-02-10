@@ -96,7 +96,7 @@ class App(CTk):
         p_prob = CTkLabel(rep, text="", font=('Roboto', 18), anchor="w")
         p_prob.grid(row=6, column=2, sticky="EW", padx=5, pady=5)
 
-        # Arranged according to class indices of model
+        # Arranged according to class indices of model.
         self.prob_lbls = [g_prob, m_prob, n_prob, p_prob]
 
         gc_btn = CTkButton(rep, text='Grad Cam',font=('Roboto', 20), command=self.display_gc,
