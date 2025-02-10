@@ -47,6 +47,32 @@ This repository contains a deep learning model and a simple graphical user inter
 
 ---
 
+
+## **Hugging Face Models**
+The trained models are available on Hugging Face for easy access and inference:
+
+- Model from epoch 11 (Best Loss): Hugging Face Link
+
+- Model from epoch 13 (Best External Dataset Performance): Hugging Face Link
+
+- Model from epoch 16 (Best Validation Performance): Hugging Face Link 
+
+
+# **Using the Models via API**
+
+Hugging Face provides an easy-to-use API to load the model directly into Python:
+```
+from transformers import AutoModel
+import tensorflow as tf
+from util import classify
+
+# Load the model
+model = tf.keras.models.load_model("aurogenic/Brain-Tumor-Detection")
+
+img_path = "Path/to/image"
+print(f"CLass: {classify(img_path, model)}")
+```
+
 ## **Methodology**
 
 1. **Dataset**:
