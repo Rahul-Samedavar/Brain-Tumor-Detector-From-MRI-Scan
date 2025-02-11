@@ -41,9 +41,6 @@ This repository contains a deep learning model and a simple graphical user inter
 ## **Repository Contents**
 ```
   ├───Images
-  │   ├───Data Distribution
-  │   ├───GradCam
-  │   └───Metrics
   ├───Logs
   ├───app.py
   ├───GradCam.py
