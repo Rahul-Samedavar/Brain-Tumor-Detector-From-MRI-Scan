@@ -1,6 +1,6 @@
 Dataset/*
 __pycache__/*
 models/Xception/*
-huggingface/*
+HuggingFace/*
 
 !models/Xception/.gitkeep

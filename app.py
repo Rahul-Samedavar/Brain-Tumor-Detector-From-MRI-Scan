@@ -2,6 +2,7 @@ from customtkinter import CTk, CTkLabel, CTkButton, CTkFrame, CTkScrollableFrame
 from tkinter.messagebox import showerror, showinfo
 
 import matplotlib.pyplot as plt
+from huggingface_hub import hf_hub_download
 from keras.models import load_model
 from util import get_probs, classes
 from GradCam import *
@@ -29,11 +30,11 @@ class App(CTk):
     def init_layout(self):
         self.image_path = None
         self.model = None
-        self.model_path = None
+        self.model_path = hf_hub_download(repo_id="Aurogenic/Brain-Tumor-Classifier", filename="Brain-Tumor-Classifier.h5")
         try:
-            self.model = load_model(DEFAULT_MODEL_PATH)
-            self.model_path = DEFAULT_MODEL_PATH
+            self.model = load_model(self.model_path)
         except Exception as e:
+            print(e)
             showerror("Error", 'Could not load Default model.')
 
         self.config(bg=D2)
@@ -42,11 +43,6 @@ class App(CTk):
         navbar.pack(side='top', fill='x')
         CTkLabel(navbar, text="Brain Tumour Classifier", font=("Roboto bold", 50), justify="left"
         ).pack(side='left', padx=10, pady=5)
-
-        CTkButton(navbar, text='Change Model',font=('Roboto', 24), command=self.change_model,
-                                fg_color=L2, hover_color=L1_C, text_color=D1,
-                                corner_radius=10, border_color=D1, border_width=2
-        ).pack(side='right', fill='y', padx=10, pady=10)
         
         CTkButton(navbar, text='Upload Scan',font=('Roboto', 24), command=self.select_image,
                                 fg_color=L2, hover_color=L1_C, text_color=D1,
@@ -118,20 +114,6 @@ class App(CTk):
 
         self.body.columnconfigure(0, weight=1)
         self.body.rowconfigure(0, weight=1)
-
-    def change_model(self):
-        file_name = filedialog.askopenfilename(initialdir="./Models/", filetypes=(['.keras', 'Keras'], ['.h5', 'H5']))
-        if (self.model is None or self.model_path != file_name):
-            try:
-                self.model = load_model(file_name)
-                self.model_path = file_name
-                showinfo("Success", f"Model Loaded.\npath: {file_name}")
-                if (self.image_path is not None):
-                    self.predict()
-            except OSError as e:
-                showerror("Invalid", "Choose a valid model file.")
-            except Exception as e:
-                showerror("Error", f"Failed to load model.\n{str(e)}")
 
     def select_image(self):
         file_name = filedialog.askopenfilename(initialdir="./", filetypes=(['.jpg', 'JPG'], ['.jpeg', 'JPEG'], ['.png', 'PNG']))
