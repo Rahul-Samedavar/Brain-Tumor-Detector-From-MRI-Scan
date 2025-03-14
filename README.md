@@ -6,7 +6,7 @@ This repository contains a deep learning model and a simple graphical user inter
 
 ## **Features**
 
-- **Pre-trained Model**: The model is fine-tuned on MRI images for multi-class tumor classification and is available in [HuggingFace](https://huggingface.co/Aurogenic/Brain-Tumor-Classifier/tree/main).
+- **Pre-trained Model**: The model is fine-tuned on MRI images for multi-class tumor classification and is available in [HuggingFace](https://huggingface.co/Rahul-Samedavar/Brain-Tumor-Classifier/tree/main).
 - **Image Augmentation**: Improves model generalization through augmented data during training.
 - **Training Notebook**: Includes a Jupyter notebook detailing the training process step-by-step.
 - **Robust Image Handling**: MRI Scan Images of all Dimensions and Mode are accepted as they are handled Dynamically.
@@ -63,7 +63,7 @@ This repository contains a deep learning model and a simple graphical user inter
 
 ## **Hugging Face**
 
-The Model is uploaded in Hugging Face [Here](https://huggingface.co/Aurogenic/Brain-Tumor-Classifier). And can be accessed through its API.
+The Model is uploaded in Hugging Face [Here](https://huggingface.co/Rahul-Samedavar/Brain-Tumor-Classifier). And can be accessed through its API.
 
 ```
 from huggingface_hub import hf_hub_download
