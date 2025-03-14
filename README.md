@@ -20,7 +20,7 @@ This repository contains a deep learning model and a simple graphical user inter
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/aurogenic/Brain-Tumor-Detector-From-MRI-Scan
+   git clone https://github.com/Rahul-Samedavar/Brain-Tumor-Detector-From-MRI-Scan.git
    cd Brain-Tumor-Detector-From-MRI-Scan
    ```
 2. Create Virutal Environment (Optional but recommended):
