@@ -24,21 +24,23 @@ This repository contains a deep learning model and a simple graphical user inter
    cd Brain-Tumor-Detector-From-MRI-Scan
    ```
 2. Create Virutal Environment (Optional but recommended):
-    ```bash
-      python -m venv BrainTumorDetector
-      BrainTumorDetector/Scripts/activate
-    ```
-2. Install dependencies:
+   ```bash
+     python -m venv BrainTumorDetector
+     BrainTumorDetector/Scripts/activate
+   ```
+3. Install dependencies:
    ```bash
    pip install -r requirements.txt
    ```
-3. Run the GUI:
+4. Run the GUI:
    ```bash
    python app.py
    ```
+
 ---
 
 ## **Repository Contents**
+
 ```
   ├───Images
   ├───Logs
@@ -59,8 +61,8 @@ This repository contains a deep learning model and a simple graphical user inter
 - **License**: MIT License.
 - **README.md**: This file.
 
-
 ## **Hugging Face**
+
 The Model is uploaded in Hugging Face [Here](https://huggingface.co/Aurogenic/Brain-Tumor-Classifier). And can be accessed through its API.
 
 ```
@@ -74,19 +76,20 @@ model_path = hf_hub_download(repo_id="Aurogenic/Brain-Tumor-Classifier", filenam
 model = load_model(model_path)
 ```
 
-
 ## **Methodology**
 
 1. **Dataset**:
 
 - 7023 MRI Scans of Brain Tumor and No tumor Images are collected from [Kaggle](https://www.kaggle.com/datasets/masoudnickparvar/brain-tumor-mri-dataset)
 - The Dataset is categoried into 4 classes
+
   - No Tumor
   - Glioma
   - Meningioma
   - Pituitary
 
   ![Data Sample](./Images/Data%20Distribution/data.png)
+
 - Disrtibution is as follows:
   ![bar chart](./Images/Data%20Distribution/bar.png)
   ![pie chart](./Images/Data%20Distribution/pie.png)
@@ -253,16 +256,12 @@ Matthews Correlation Coefficient: 0.9933
 ![Confusion Matrix](./Images/Metrics/External%20Testing/epoch%2013/confusion%20matrix.png)
 
 6. **Grad CAM and Grad CAM++**:
-Gradient-Weighted Class Activation Mapping is a technique in computer vision and deep learning that helps users understand how convolutional neural networks (CNNs) make predictions.
-It allows us to see what parts of the image a layer focuses on order to make predictions. Grad CAM++ improves this further by back propogation. This are visualized by masking the heatmap over the image.
+   Gradient-Weighted Class Activation Mapping is a technique in computer vision and deep learning that helps users understand how convolutional neural networks (CNNs) make predictions.
+   It allows us to see what parts of the image a layer focuses on order to make predictions. Grad CAM++ improves this further by back propogation. This are visualized by masking the heatmap over the image.
 
 ![Grad Cam](./Images/GradCam/golima-gradcam.png)
 
 ![Grad Cam++](./Images/GradCam/golima-gradcam-plus-plus.png)
-
-
-
-
 
 ## **Contributing**
 
